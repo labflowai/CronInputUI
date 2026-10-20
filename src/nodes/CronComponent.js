@@ -15,6 +15,8 @@ export class CronComponent extends HTMLElement {
         if (this.state.css) {
             var style = document.createElement('style');
             style.textContent = this.state.css;
+            var nonce = document.querySelector('meta[name="csp-nonce"]');
+            if (nonce) style.nonce = nonce.content;
             document.head.appendChild(style);
         }
     }
