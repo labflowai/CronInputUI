@@ -152,6 +152,10 @@ You can pass various attributes to the component to modify its behavior, Example
 |**`required`**|`{Boolean}`|`false`|Allow component to be empty, if set, the form will not validate when empty|
 |**`hotValidate`**|`{Boolean}`|`false`|Enable cron validation while editing it, if not set, it will only be validated when the submit event is performed within a form or by clicking on the save button|
 
+## Content Security Policy
+
+Each component appends a `<style>` element to `document.head` for its colours. If the page has `<meta name="csp-nonce" content="...">` (what Rails' `csp_meta_tag` renders), that element carries the nonce, so a `style-src` policy with a nonce source allows it.
+
 ## Languages
 
 ```
